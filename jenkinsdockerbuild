@@ -8,10 +8,7 @@ pipeline{
         }
         stage('Maven Build'){
             steps{
-               script {
-                  def mvnhome = tool name: 'M2_HOME', type: 'maven'
-                  sh "${mvnhome}/bin/mvn --version"
-                  sh "${mvnhome}/bin/mvn clean package"
+                sh 'mvn clean install'
                } 
             }
         }
